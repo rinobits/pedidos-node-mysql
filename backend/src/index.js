@@ -23,7 +23,7 @@ app.use('/api/tipoMasa', require('./routes/tipoMasa'));
 app.use('/api/saborMasa', require('./routes/saborMasa'));
 app.use('/api/tamano', require('./routes/tamano'));
 app.use('/api/cobertura', require('./routes/tipoMasa'));
-app.use('/', require('./routes/index'));
+app.use('/api/formulario', require('./routes/formulario'));
 
 // Ejecución del servidor
 app.listen(port, () => {
