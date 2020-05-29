@@ -1,11 +1,11 @@
 const mysql = require('mysql');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 
 const mysqlConnection = mysql.createConnection({
-  host: 'localhost',
+  host: '138.197.7.205',
   user: 'root',
-  password: '2304',
-  database: 'pedidos',
+  password: 'M41gn4c14_',
+  database: 'jean001',
   multipleStatements: true
 });
 
