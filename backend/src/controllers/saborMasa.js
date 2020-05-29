@@ -1,7 +1,7 @@
 const mysqlConnection = require("../database");
 
-getTipoMasa = (req, res) => {
-    mysqlConnection.query('SELECT * FROM tipoMasa', (err, rows, fields) => {
+getSaborMasa = (req, res) => {
+    mysqlConnection.query('SELECT * FROM saborMasa', (err, rows, fields) => {
       if(!err) {
         res.json(rows);
       } else {
@@ -11,9 +11,9 @@ getTipoMasa = (req, res) => {
 }
 
 
-getTipoMasaID = (req, res) => {
+getSaborMasaID = (req, res) => {
     const { id } = req.params; 
-    mysqlConnection.query('SELECT * FROM tipoMasa WHERE id = ?', [id], (err, rows, fields) => {
+    mysqlConnection.query('SELECT * FROM saborMasa WHERE id = ?', [id], (err, rows, fields) => {
       if (!err) {
         res.json(rows[0]);
       } else {
@@ -52,9 +52,9 @@ getCoberturaID = (req, res) => {
 module.exports = {
     getCobertura,
     getCoberturaID
-}
- */
+} */
+
 module.exports = {
-    getTipoMasa,
-    getTipoMasaID
+    getSaborMasa,
+    getSaborMasaID
 }
