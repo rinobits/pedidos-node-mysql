@@ -4,7 +4,7 @@ getIndex = (req, res) => {
     console.log('POST /');
     console.log(req.body);
     const {
-        id, solicitante, telefono, mensaje, catacteristicas, 
+        id, solicitante, telefono, mensaje, caracteristicas, 
         tipoMasa, saborMasa, cobertura, tamano, abono, precio,
         horaPedido
     } = req.body;
@@ -26,6 +26,7 @@ getIndex = (req, res) => {
     `
     mysqlConnection.query(query, [id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaPedido], (err, rows, fields) => {
         if(!err){
+	    console.log('done');
             res.json({status: 'Order saved!'});
         }else{
             console.log(err);

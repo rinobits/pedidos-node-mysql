@@ -1,11 +1,10 @@
-USE jean001;
+USE `jean001`;
+DROP procedure IF EXISTS `addOrEditPedido`;
 
 DELIMITER $$
 USE `jean001`$$
-
-
 CREATE PROCEDURE `addOrEditPedido` (
-	IN _id INT(11),
+    IN _id INT,
     IN _solicitante VARCHAR(30),
     IN _telefono VARCHAR(20),
     IN _tipoMasa VARCHAR(30),
@@ -15,11 +14,10 @@ CREATE PROCEDURE `addOrEditPedido` (
     IN _caracteristicas VARCHAR(200),
     IN _mensaje VARCHAR(200),
     IN _horaPedido VARCHAR(5), 
-    IN _abono INT(8),
-    IN _precio INT(8)
+    IN _abono INT,
+    IN _precio INT
 )
-
-BEGIN 
+BEGIN
     IF _id = 0 THEN
         INSERT INTO pedidos (solicitante, telefono, tipoMasa, saborMasa, cobertura,
                             tamano, caracteristicas, mensaje, abono, precio, horaPedido, estado)
@@ -29,18 +27,20 @@ BEGIN
     ELSE
         UPDATE pedidos
         SET 
-            solicitante = _solicitante,
-            telefono = _telefono,
-            tipoMasa = _tipoMasa,
-            saborMasa = _saborMasa,
-            cobertura = _cobertura,
-            tamano = _tamano,
-            caracteristicas = _caracteristicas,
-            mensaje = _mensaje,
-            abono = _abono,
-            precio = _precio,
-            horaPedido = _horaPedido,
-            estado = 1,
-            WHERE _id AS 'id';
+		solicitante = _solicitante,
+		telefono = _telefono,
+		tipoMasa = _tipoMasa,
+		saborMasa = _saborMasa,
+		cobertura = _cobertura,
+		tamano = _tamano,
+		caracteristicas = _caracteristicas,
+		mensaje = _mensaje,
+		abono = _abono,
+		precio = _precio,
+		horaPedido = _horaPedido,
+		estado = 1
+		WHERE _id = id;
     END IF;
-END
+    SELECT _id AS id;
+END;$$
+DELIMITER ;
