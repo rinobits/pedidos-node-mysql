@@ -7,15 +7,15 @@ CREATE PROCEDURE `addOrEditPedido` (
     IN _id INT,
     IN _solicitante VARCHAR(30),
     IN _telefono VARCHAR(20),
+    IN _mensaje VARCHAR(200),
+    IN _caracteristicas VARCHAR(200),
     IN _tipoMasa VARCHAR(30),
     IN _saborMasa VARCHAR(30),
     IN _cobertura VARCHAR(30),
     IN _tamano VARCHAR(20),
-    IN _caracteristicas VARCHAR(200),
-    IN _mensaje VARCHAR(200),
-    IN _horaPedido VARCHAR(5), 
-    IN _abono INT,
-    IN _precio INT
+    IN _abono INT, 
+    IN _precio INT,
+    IN _horaPedido VARCHAR(5)
 )
 BEGIN
     IF _id = 0 THEN
@@ -44,3 +44,4 @@ BEGIN
     SELECT _id AS id;
 END;$$
 DELIMITER ;
+
