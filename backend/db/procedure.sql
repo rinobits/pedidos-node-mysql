@@ -20,10 +20,11 @@ CREATE PROCEDURE `addOrEditPedido` (
 BEGIN
     IF _id = 0 THEN
         INSERT INTO pedidos (solicitante, telefono, tipoMasa, saborMasa, cobertura,
-                            tamano, caracteristicas, mensaje, abono, precio, horaPedido, estado)
+                            tamano, caracteristicas, mensaje, abono, precio, horaPedido)
         VALUES (_solicitante, _telefono, _tipoMasa, _saborMasa, _cobertura,
-                _tamano, _caracteristicas, _mensaje, _abono, _precio, _horaPedido, _estado);
+                _tamano, _caracteristicas, _mensaje, _abono, _precio, _horaPedido);
         SET _id = LAST_INSERT_ID();
+	SET estado = 1;
     ELSE
         UPDATE pedidos
         SET 
@@ -41,7 +42,7 @@ BEGIN
 		estado = 1
 		WHERE _id = id;
     END IF;
-    SELECT _id AS id;
+    SELECT * FROM pedidos;
 END;$$
 DELIMITER ;
 
