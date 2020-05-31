@@ -24,7 +24,8 @@ setPedido = (req, res) => {
     `
     mysqlConnection.query(query, [id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaPedido], (err, rows, fields) => {
         if(!err){
-	        console.log('done');
+            console.log('done');
+            res.json({status: true, data: rows[0]});
         }else{
             console.log(err);
         }
@@ -37,7 +38,8 @@ getPedidosID = (req, res) => {
     `
     mysqlConnection.query(query, [id], (err, rows, fields) => {
         if(!err){
-	        console.log('done');
+            console.log('done');
+            res.json({status: true, data: id});
         }else{
             console.log(err);
         }
@@ -49,13 +51,13 @@ getPedidosFecha = (req, res) => {
     `
     mysqlConnection.query(query, (err, rows, fields) => {
         if(!err){
-	        console.log('done');
+            console.log('done');
+            res.json({status: true, data: rows[0]});
         }else{
             console.log(err);
         }
     });
 }
-    
 updatePedidos = (req, res) => {
     const {
         id, solicitante, telefono, mensaje, caracteristicas, 
@@ -80,7 +82,8 @@ updatePedidos = (req, res) => {
     `
     mysqlConnection.query(query, [id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaPedido], (err, rows, fields) => {
         if(!err){
-	        console.log('done');
+            console.log('done');
+            res.json({status: true, data: rows[0]});
         }else{
             console.log(err);
         }
@@ -99,7 +102,7 @@ deletePedidosID = (req, res) => {
     mysqlConnection.query(query, [0, id], (err, rows, fields) => {
         if(!err){
             console.log('done');
-            res.json({message: 'Hecho!'});
+            res.json({status: true, data: rows[0]});
         }else{
             console.log(err);
         }

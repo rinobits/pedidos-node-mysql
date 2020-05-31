@@ -9,7 +9,6 @@ getCobertura = (req, res) => {
       }
     });
 }
-
 getCoberturaID = (req, res) => {
     const { id } = req.params; 
     mysqlConnection.query('SELECT * FROM cobertura WHERE id = ?', [id], (err, rows, fields) => {
@@ -20,7 +19,6 @@ getCoberturaID = (req, res) => {
       }
     });
 }
-
 /* const mongoose = require('mongoose');
 
 getCobertura = (req, res) => {
