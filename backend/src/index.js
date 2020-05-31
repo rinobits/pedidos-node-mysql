@@ -25,7 +25,6 @@ app.use('/api/tamano', require('./routes/tamano'));
 app.use('/api/cobertura', require('./routes/cobertura'));
 app.use('/api/pedidos', require('./routes/pedidos'));
 app.use('/api/pedidos/fecha', require('./routes/pedidos'));
-
 // Ejecucion del servidor
 app.listen(port, () => {
 	console.log(`Listening on port ${port}`);

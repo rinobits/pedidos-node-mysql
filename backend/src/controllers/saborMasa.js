@@ -10,7 +10,6 @@ getSaborMasa = (req, res) => {
     });
 }
 
-
 getSaborMasaID = (req, res) => {
     const { id } = req.params; 
     mysqlConnection.query('SELECT * FROM saborMasa WHERE id = ?', [id], (err, rows, fields) => {

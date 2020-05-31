@@ -33,37 +33,38 @@ BEGIN
 		horaPedido,
 		fecha,
 		estado)
-        VALUES(	_solicitante, 
+        VALUES(
+        _solicitante, 
 		_telefono, 
 		_tipoMasa, 
 		_saborMasa, 
 		_cobertura,
-                _tamano, 
-                _caracteristicas, 
-                _mensaje, 
-                _abono, 
-                _precio, 
-                _horaPedido,
-                CURDATE(),
-                1);
+        _tamano, 
+        _caracteristicas, 
+        _mensaje, 
+        _abono, 
+        _precio, 
+        _horaPedido,
+        CURDATE(),
+        1);
         SET _id = LAST_INSERT_ID();
     ELSE
         UPDATE pedidos
         SET 
-                solicitante = _solicitante,
-                telefono = _telefono,
-                tipoMasa = _tipoMasa,
-                saborMasa = _saborMasa,
-                cobertura = _cobertura,
-                tamano = _tamano,
-                caracteristicas = _caracteristicas,
-                mensaje = _mensaje,
-                abono = _abono,
-                precio = _precio,
-                horaPedido = _horaPedido,
-                estado = 1,
-                fecha = CURDATE()
-                WHERE _id = id;
+            solicitante = _solicitante,
+            telefono = _telefono,
+            tipoMasa = _tipoMasa,
+            saborMasa = _saborMasa,
+            cobertura = _cobertura,
+            tamano = _tamano,
+            caracteristicas = _caracteristicas,
+            mensaje = _mensaje,
+            abono = _abono,
+            precio = _precio,
+            horaPedido = _horaPedido,
+            estado = 1,
+            fecha = CURDATE()
+            WHERE _id = id;
     END IF;
     SELECT * FROM pedidos;
 END;$$

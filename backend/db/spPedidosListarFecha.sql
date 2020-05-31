@@ -7,4 +7,4 @@ CREATE PROCEDURE `listarFecha` ()
 BEGIN
     SELECT * FROM pedidos ORDER BY fecha ASC;
 END;$$
-DELIMITER ;
+DELIMITER;

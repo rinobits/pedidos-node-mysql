@@ -1,5 +1,4 @@
 const mysqlConnection = require('../database');
-// const { model } = require("mongoose");
 setPedido = (req, res) => {
     const {
         id, solicitante, telefono, mensaje, caracteristicas, 
@@ -8,7 +7,7 @@ setPedido = (req, res) => {
     } = req.body;
     const query =  `
         SET @id = ?;
-        SET @solicitante = ?;
+        SET @solicitante = ?;   
         SET @telefono = ?;
         SET @mensaje = ?;
         SET @caracteristicas = ?;
@@ -34,6 +33,7 @@ setPedido = (req, res) => {
 getPedidosID = (req, res) => {
     const { id } = req.params; 
     const query =  `
+        SET @id = ?;
         CALL listarID(@id);
     `
     mysqlConnection.query(query, [id], (err, rows, fields) => {
@@ -47,7 +47,7 @@ getPedidosID = (req, res) => {
 }
 getPedidosFecha = (req, res) => {
     const query =  `
-        SELECT * FROM pedidos ORDER BY fecha ASC;
+        CALL listarFecha();
     `
     mysqlConnection.query(query, (err, rows, fields) => {
         if(!err){
@@ -93,12 +93,11 @@ updatePedidos = (req, res) => {
 deletePedidosID = (req, res) => {
     const {id} = req.params;
     const query =  `
-        UPDATE pedidos
-        SET estado = ?
-        WHERE id = ?;
-        
+        SET @estado = 0,
+        SET @id = ?;
+        CALL deletePedido(@estado, @id);
     `
-    mysqlConnection.query(query, [0, id], (err, rows, fields) => {
+    mysqlConnection.query(query, [id], (err, rows, fields) => {
         if(!err){
             console.log('done');
             res.json({status: true, data: id});
@@ -114,4 +113,3 @@ module.exports = {
     updatePedidos,
     deletePedidosID
 };
-
