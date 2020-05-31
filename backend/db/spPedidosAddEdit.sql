@@ -67,4 +67,4 @@ BEGIN
     END IF;
     SELECT _id AS id;
 END;$$
-DELIMITER ;
+DELIMITER;

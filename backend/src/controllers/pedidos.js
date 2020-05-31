@@ -89,12 +89,17 @@ updatePedidos = (req, res) => {
 }
 deletePedidosID = (req, res) => {
     const {id} = req.params.id;
+    console.log(id);
     const query =  `
-        CALL deletePedido(@id);
+        UPDATE pedidos
+        SET estado = ?
+        WHERE id = ?;
+        
     `
-    mysqlConnection.query(query, [id], (err, rows, fields) => {
+    mysqlConnection.query(query, [0, id], (err, rows, fields) => {
         if(!err){
-	        console.log('done');
+            console.log('done');
+            res.json({message: 'Hecho!'});
         }else{
             console.log(err);
         }
