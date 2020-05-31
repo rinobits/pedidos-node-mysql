@@ -65,6 +65,6 @@ BEGIN
                 fecha = CURDATE()
                 WHERE _id = id;
     END IF;
-    SELECT _id AS id;
+    SELECT * FROM pedidos;
 END;$$
 DELIMITER;
