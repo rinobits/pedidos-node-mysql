@@ -31,7 +31,7 @@ setPedido = (req, res) => {
     });
 }
 getPedidosID = (req, res) => {
-    const { id } = req.params.id; 
+    const { id } = req.params; 
     const query =  `
         CALL listarID(@id);
     `
@@ -88,7 +88,7 @@ updatePedidos = (req, res) => {
     
 }
 deletePedidosID = (req, res) => {
-    const {id} = req.params.id;
+    const {id} = req.params;
     console.log(id);
     const query =  `
         UPDATE pedidos
