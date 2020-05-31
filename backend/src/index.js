@@ -4,7 +4,7 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 // Asignación puerto
-const port = 3003;
+const port = 3001;
 // Middlewares
 app.use(morgan('dev'));
 app.use(cors());
@@ -22,8 +22,9 @@ app.use((req, res, next) => {
 app.use('/api/tipoMasa', require('./routes/tipoMasa'));
 app.use('/api/saborMasa', require('./routes/saborMasa'));
 app.use('/api/tamano', require('./routes/tamano'));
-app.use('/api/cobertura', require('./routes/tipoMasa'));
+app.use('/api/cobertura', require('./routes/cobertura'));
 app.use('/api/pedidos', require('./routes/pedidos'));
+app.use('/api/pedidos/fecha', require('./routes/pedidos'));
 
 // Ejecucion del servidor
 app.listen(port, () => {

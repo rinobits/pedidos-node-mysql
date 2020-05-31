@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
     abono INT(8) DEFAULT NULL,
     precio INT(8) DEFAULT NULL,
     estado INT(1) DEFAULT 1,
+    fecha DATE DEFAULT DATE(NOW());
     PRIMARY KEY(id)
 );
 

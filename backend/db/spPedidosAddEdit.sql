@@ -24,7 +24,8 @@ BEGIN
         VALUES (_solicitante, _telefono, _tipoMasa, _saborMasa, _cobertura,
                 _tamano, _caracteristicas, _mensaje, _abono, _precio, _horaPedido);
         SET _id = LAST_INSERT_ID();
-	SET estado = 1;
+        SET fecha = DATE(NOW());
+        SET estado = 1;
     ELSE
         UPDATE pedidos
         SET 
@@ -39,10 +40,11 @@ BEGIN
 		abono = _abono,
 		precio = _precio,
 		horaPedido = _horaPedido,
-		estado = 1
+		estado = 1,
+        fecha = DATE(NOW());
 		WHERE _id = id;
     END IF;
-    SELECT * FROM pedidos;
+    SELECT _id AS id;
 END;$$
 DELIMITER ;
 
