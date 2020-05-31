@@ -31,9 +31,8 @@ setPedido = (req, res) => {
     });
 }
 getPedidosID = (req, res) => {
-    const { id } = req.params; 
+    const { id } = req.params.id; 
     const query =  `
-        SELECT * FROM pedidos WHERE @id = id;
         CALL listarID(@id);
     `
     mysqlConnection.query(query, [id], (err, rows, fields) => {
@@ -89,12 +88,11 @@ updatePedidos = (req, res) => {
     
 }
 deletePedidosID = (req, res) => {
-    const {_id} = req.params;
+    const {id} = req.params.id;
     const query =  `
-        UPDATE pedidos SET estado = 0 WHERE @_id = id;
-        CALL deletePedido(@_id);
+        CALL deletePedido(@id);
     `
-    mysqlConnection.query(query, [_id], (err, rows, fields) => {
+    mysqlConnection.query(query, [id], (err, rows, fields) => {
         if(!err){
 	        console.log('done');
         }else{

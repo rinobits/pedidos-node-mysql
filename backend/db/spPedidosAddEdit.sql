@@ -1,5 +1,5 @@
 USE `jean001`;
-DROP procedure IF EXISTS `addOrEditPedido`;
+DROP PROCEDURE IF EXISTS `addOrEditPedido`;
 
 DELIMITER $$
 USE `jean001`$$
@@ -19,32 +19,52 @@ CREATE PROCEDURE `addOrEditPedido` (
 )
 BEGIN
     IF _id = 0 THEN
-        INSERT INTO pedidos (solicitante, telefono, tipoMasa, saborMasa, cobertura,
-                            tamano, caracteristicas, mensaje, abono, precio, horaPedido)
-        VALUES (_solicitante, _telefono, _tipoMasa, _saborMasa, _cobertura,
-                _tamano, _caracteristicas, _mensaje, _abono, _precio, _horaPedido);
+        INSERT	INTO pedidos (
+		solicitante, 
+		telefono, 
+		tipoMasa, 
+		saborMasa, 
+		cobertura,
+		tamano, 
+		caracteristicas, 
+		mensaje, 
+		abono, 
+		precio, 
+		horaPedido,
+		fecha,
+		estado)
+        VALUES(	_solicitante, 
+		_telefono, 
+		_tipoMasa, 
+		_saborMasa, 
+		_cobertura,
+                _tamano, 
+                _caracteristicas, 
+                _mensaje, 
+                _abono, 
+                _precio, 
+                _horaPedido,
+                CURDATE(),
+                1);
         SET _id = LAST_INSERT_ID();
-        SET fecha = DATE(NOW());
-        SET estado = 1;
     ELSE
         UPDATE pedidos
         SET 
-		solicitante = _solicitante,
-		telefono = _telefono,
-		tipoMasa = _tipoMasa,
-		saborMasa = _saborMasa,
-		cobertura = _cobertura,
-		tamano = _tamano,
-		caracteristicas = _caracteristicas,
-		mensaje = _mensaje,
-		abono = _abono,
-		precio = _precio,
-		horaPedido = _horaPedido,
-		estado = 1,
-        fecha = DATE(NOW());
-		WHERE _id = id;
+                solicitante = _solicitante,
+                telefono = _telefono,
+                tipoMasa = _tipoMasa,
+                saborMasa = _saborMasa,
+                cobertura = _cobertura,
+                tamano = _tamano,
+                caracteristicas = _caracteristicas,
+                mensaje = _mensaje,
+                abono = _abono,
+                precio = _precio,
+                horaPedido = _horaPedido,
+                estado = 1,
+                fecha = CURDATE()
+                WHERE _id = id;
     END IF;
     SELECT _id AS id;
 END;$$
 DELIMITER ;
-
