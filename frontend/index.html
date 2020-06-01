@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TestN001</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="titleAndButtons">
+            <div class="title">Pedido Especial</div>
+            <div class="fecha">
+                <button class="left">&#8249;</button>
+                <button class="fechaRaw">29-05-2019</button>
+                <button class="right">&#8250;</button>
+            </div>
+            <div class="nuevo">Nuevo</div>
+            <div class="anular">Anular</div>
+            <div class="registrar">Registrar</div>
+        </div>
+        <div class="table">
+            <div class="titles">
+                <div class="id">#</div>
+                <div class="hora">Hora</div>
+                <div class="pedido">Pedido</div>
+                <div class="abono">Abono</div>
+                <div class="precio">Precio</div>
+            </div>
+        </div>
+        <form action="/" method="POST">
+            <div class="titles">
+                <div class="t1">
+                    <div class="label">
+                        Solicitante
+                    </div>
+                </div>
+                <div class="t2">
+                    <div class="label">
+                        Torta
+                    </div>
+                </div>
+                <div class="t3">
+                    <div class="label">
+                        Características
+                    </div>
+                </div>
+                <div class="t4">
+                    <div class="label">
+                        Mensaje
+                    </div>
+                </div>
+                <div class="t5">
+                    <div class="label">
+                        Hora
+                    </div>
+                </div>
+            </div>
+            <div class="field1">
+                    <input name="solicitante" class="f1 field" id="solicitante" type="text" required>
+            </div>
+            <div class="field2">
+                <div class="t1 label">
+                    Teléfono
+                </div>
+                <input name="telefono" class="f1 field" id="telefono" type="text" required>
+            </div>
+            <div class="field3">
+                <select name="tipoMasa" id="tipoMasa" class="f1 field" required>
+                    <option value="">Tipo de masa</option>
+                </select>
+                <select name="saborMasa" id="saborMasa" class="f2 field" required>
+                    <option value="">Sabor de masa</option>
+                </select>
+            </div>
+            <div class="field4">
+                <select name="cobertura" id="cobertura" class="f1 field" required>
+                    <option value="">Cobertura</option>
+                </select>
+                <select name="tamano" id="tamano" class="f2 field" required>
+                    <option value="">Tamaño</option>
+                </select>
+            </div>
+            <div class="field5">
+                <textarea name="caracteristicas" class="f1 field" id="caracteristicas" required></textarea>
+            </div>
+            <div class="field6">
+                <textarea name="mensaje" class="f1 field" id="mensaje" required></textarea>
+            </div>
+            <div class="field7">
+                <select name="horaDrop" id="horaDrop" class="f1 field" required>
+                    <option value="">Hora</option>
+                </select>
+                <div class="t1 label">Abono</div>
+            </div>
+            <div class="field8">
+                <input name="abono" class="f1 field" id="abono" type="text">
+                <div class="t1 label">Precio</div>
+                <input name="precio" class="f2 field" id="precio" type="text">
+                
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="./js/clases/tipoMasa.js"></script>
+    <script type="text/javascript" src="./js/clases/saborMasa.js"></script>
+    <script type="text/javascript" src="./js/clases/cobertura.js"></script>
+    <script type="text/javascript" src="./js/clases/tamano.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
