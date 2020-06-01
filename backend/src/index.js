@@ -22,8 +22,11 @@ app.use('/api/tipoMasa', require('./routes/tipoMasa'));
 app.use('/api/saborMasa', require('./routes/saborMasa'));
 app.use('/api/tamano', require('./routes/tamano'));
 app.use('/api/cobertura', require('./routes/cobertura'));
-app.use('/api/pedidos', require('./routes/pedidos'));
-app.use('/api/pedidos/fecha', require('./routes/fecha'));
+app.use('/api/pedidos/buscar', require('./routes/buscar'));
+app.use('/api/pedidos/listar', require('./routes/listar'));
+app.use('/api/pedidos/registrar', require('./routes/registrar'));
+app.use('/api/pedidos/modificar', require('./routes/modificar'));
+app.use('/api/pedidos/eliminar', require('./routes/eliminar'));
 // Ejecucion del servidor
 app.listen(port, () => {
 	console.log(`Listening on port ${port}`);
