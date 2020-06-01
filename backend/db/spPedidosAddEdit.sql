@@ -1,6 +1,5 @@
 USE `jean001`;
 DROP PROCEDURE IF EXISTS `addOrEditPedido`;
-
 DELIMITER $$
 USE `jean001`$$
 CREATE PROCEDURE `addOrEditPedido` (
@@ -68,4 +67,4 @@ BEGIN
     END IF;
     SELECT * FROM pedidos;
 END;$$
-DELIMITER;
+DELIMITER ;
