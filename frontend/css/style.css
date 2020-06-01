@@ -1,3 +1,7 @@
+/*#########################################*/
+/*############ START NORMALIZE ############*/
+/*#########################################*/
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -347,6 +351,9 @@
   [hidden] {
     display: none;
   }
+/*#######################################*/
+/*############ END NORMALIZE ############*/
+/*#######################################*/
 body{
     box-sizing: border-box !important;
     width:100%;
