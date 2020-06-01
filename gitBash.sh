@@ -4,7 +4,7 @@ git remote -v
 read -p "Ok?" yn
 case $yn in
     [Nn]* ) exit;;
-    [Yy]* ) break;;
+    [Yy\n]* ) break;;
 esac
 git add .
 git commit -m "gitUpdate"
