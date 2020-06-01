@@ -1,10 +1,9 @@
 const mysqlConnection = require('../database');
 deletePedidosID = (req, res) => {
-    const {id} = req.params;
+    const {id} = req.params.id;
     const query =  `
-        SET @estado = 0,
         SET @id = ?;
-        CALL deletePedido(@estado, @id);
+        CALL deletePedido(@id);
     `
     mysqlConnection.query(query, [id], (err, rows, fields) => {
         if(!err){
