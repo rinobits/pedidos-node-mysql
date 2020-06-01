@@ -1,7 +1,8 @@
 /*#########################################*/
+/*#########################################*/
 /*############ START NORMALIZE ############*/
 /*#########################################*/
-
+/*#########################################*/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -352,7 +353,9 @@
     display: none;
   }
 /*#######################################*/
+/*#######################################*/
 /*############ END NORMALIZE ############*/
+/*#######################################*/
 /*#######################################*/
 body{
     box-sizing: border-box !important;
@@ -376,14 +379,12 @@ body{
     background-color:rgb(153, 182, 236);
 }
 .table{
-    min-width:39%;  
-    max-width:39%;
+    flex:39%;  
     min-height: 500px;
 }
 form{
     height:400px;
-    min-width:59%;
-    max-width:59%;
+    flex:59%;
     display:grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows:repeat(6,1fr);
@@ -529,7 +530,7 @@ form .titles{
 }
 .field7{
     grid-area:field7;
-    display:grid;
+    display:grid;1124
     grid-template-columns: repear(2, 1fr);
     grid-template-areas: 
         'f1 t1';
@@ -657,4 +658,48 @@ form .titles{
   padding: 10px;
   font-weight: bold;
 
+}
+/*#######################################*/
+/*#######################################*/
+/*############ START QUERYES ############*/
+/*#######################################*/
+/*#######################################*/
+
+@media (max-width:1000px){
+  .table{
+    flex:90% !important;
+    order:2;
+  }
+  form{
+    flex:90% !important;
+    order:1;
+    margin-bottom:20px;
+  }
+  .table .titles{
+    padding:0 5px 0 0;
+  }
+}
+@media (max-width: 655px){
+  .titleAndButtons{
+    grid-template-rows:repeat(2, 1fr);
+    grid-template-columns:repeat(8, 1fr);
+    grid-template-areas:
+      'title title . . . . . .'
+      'fecha fecha . . . nuevo anular registrar';
+  }
+  .titleAndButtons .title{
+    white-space: nowrap;
+    font-size:20px;
+
+  }
+}
+@media (max-width:422px){
+  .titleAndButtons{
+    grid-template-rows:repeat(3, 1fr);
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-areas:
+      'title title title'
+      'fecha fecha fecha'
+      'nuevo anular registrar';
+  }
 }
