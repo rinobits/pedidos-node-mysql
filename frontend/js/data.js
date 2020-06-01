@@ -1,5 +1,5 @@
-var ip = "localhost";
-var puerto = 3000;
+var ip = "138.197.7.205";
+var puerto = 3001;
 var horasJson = [
     {
         "id": "1",
@@ -12,7 +12,6 @@ var horasJson = [
     {
         "id": "3",
         "name": "10:00"
-        "id": "3",
     },
     {
         "id": "4",
