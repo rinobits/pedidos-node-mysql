@@ -6,6 +6,15 @@ getPedidosFecha = (req, res) => {
     mysqlConnection.query(query, (err, rows, fields) => {
         if(!err){
             console.log('done');
+            let temp = new Array();
+            let i = 0;
+            rows[0].forEach(row => {
+                if(row.id){
+                    temp[i] = row;
+                    i++;
+                }
+            })
+            rows = temp;
             res.json({status: true, data: rows});
         }else{
             console.log(err);

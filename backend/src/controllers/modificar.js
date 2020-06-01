@@ -25,7 +25,7 @@ updatePedidos = (req, res) => {
     mysqlConnection.query(query, [id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaPedido], (err, rows, fields) => {
         if(!err){
             console.log('done');
-            res.json({status: true, data: rows});
+            res.json({status: true, data: rows[12][0].id});
         }else{
             console.log(err);
         }

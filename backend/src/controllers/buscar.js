@@ -8,6 +8,13 @@ getPedidosID = (req, res) => {
     mysqlConnection.query(query, [id], (err, rows, fields) => {
         if(!err){
             console.log('done');
+            let temp = new Array();
+            rows[1].forEach(row => {
+                if(row.id){
+                    temp[0] = row;
+                }
+            })
+            rows = temp;
             res.json({status: true, data: rows});
         }else{
             console.log(err);

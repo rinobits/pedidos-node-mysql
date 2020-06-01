@@ -7,6 +7,7 @@ BEGIN
     UPDATE pedidos 
     SET estado = 0
     WHERE id = _id;
+    SELECT _id as id;
 END;$$
 DELIMITER ;
 
