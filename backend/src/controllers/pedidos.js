@@ -45,19 +45,6 @@ getPedidosID = (req, res) => {
         }
     });
 }
-getPedidosFecha = (req, res) => {
-    const query =  `
-        CALL listarFecha();
-    `
-    mysqlConnection.query(query, (err, rows, fields) => {
-        if(!err){
-            console.log('done');
-            res.json({status: true, data: rows});
-        }else{
-            console.log(err);
-        }
-    });
-}
 updatePedidos = (req, res) => {
     const {
         id, solicitante, telefono, mensaje, caracteristicas, 
@@ -109,7 +96,6 @@ deletePedidosID = (req, res) => {
 module.exports = {
     setPedido,
     getPedidosID,
-    getPedidosFecha,
     updatePedidos,
     deletePedidosID
 };
