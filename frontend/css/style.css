@@ -257,10 +257,14 @@ form .titles{
 .table .data .fields > div{
   background-color:rgb(189, 186, 186);
   word-wrap: break-word !important;
+  font-size:15px;
+  padding:10px;
+  margin-bottom:5px;
 }
 .table .data{
   min-height: 500px;
   max-height: 500px;
+  padding:0 5px;
 }
 .table .data .fields{
   display:grid;
@@ -268,12 +272,13 @@ form .titles{
   grid-template-rows:repeat(auto, 1fr);
   grid-auto-rows: auto;
   grid-gap:5px;
-  padding:0px 5px;
   grid-template-areas:
     'id hora pedido pedido pedido abono precio';
 }
     .table .data .id{
       grid-area:id;
+      text-align: center;
+      vertical-align: center;
     }
     .table .data .hora{
       grid-area:hora;
@@ -309,6 +314,13 @@ form .titles{
   }
   .titleAndButtons .fecha > *{
     padding:5px;
+  }
+  .titleAndButtons label{
+    transition: transform 200ms linear;
+  }
+  .titleAndButtons label:hover{
+    cursor:pointer;
+    transform: scale(1.05);
   }
 .titleAndButtons .fecha .left,
 .titleAndButtons .fecha .right
@@ -349,9 +361,22 @@ form .titles{
   opacity:0;
   display:none;
 }
+
+
+
+
+
 /*#######################################*/
 /*#######################################*/
-/*############ START QUERYES ############*/
+/*############ Table Buttons ############*/
+/*#######################################*/
+/*#######################################*/
+
+
+
+/*#######################################*/
+/*#######################################*/
+/*############ END TAB BUTT. ############*/
 /*#######################################*/
 /*#######################################*/
 

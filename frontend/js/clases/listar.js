@@ -7,7 +7,6 @@ class pedidosFecha {
             method: "GET"
         });
         const jsonData = await res.json();
-        console.log(jsonData.data);
         return jsonData.data;
     }
 }

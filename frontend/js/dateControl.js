@@ -1,12 +1,11 @@
-const llenarCampos = (data) => {
-    console.log(data);
+const llenarCampos = async(fecha, data) => {
     combo = $('#data');
-    $.each(data, (key, value) => {
-        
+    $('.fechaRaw').html(fecha);
+    $.each(await data, (key, value) => {
         combo.append(`\
             <div class='fields'>\
                 <div class='id'>${value.id}</div>\
-                <div class='hora'>${value.horaPedido}</div>\
+                <div class='hora'>${value.horaDrop}</div>\
                 <div class='pedido'>\
                     <div class='nombre'>\
                     ${value.solicitante}\
@@ -35,7 +34,7 @@ const filtrarFechas = async(fecha, fechaReciente, fechaAntigua, json, op) => {
                     tempList[i] = json[i];
                 }
             }
-            llenarCampos(tempList); 
+            llenarCampos(fecha, tempList); 
             break;
         case -1:
             if(fecha == fechaAntigua){
@@ -56,7 +55,7 @@ const filtrarFechas = async(fecha, fechaReciente, fechaAntigua, json, op) => {
                     }
                 }
             }
-            llenarCampos(tempList);
+            llenarCampos(fecha, tempList);
             break;
         case  1:
             if(fecha == fechaReciente){
@@ -79,7 +78,7 @@ const filtrarFechas = async(fecha, fechaReciente, fechaAntigua, json, op) => {
                     }
                 }
             }
-            llenarCampos(tempList);
+            llenarCampos(fecha, tempList);
             break;
     }
     return fecha;

@@ -1,7 +1,7 @@
 llenaCombo = (Name, json) => {
     combo = $('#' + Name);
     $.each(json, (key, value) => {
-        combo.append('<option value="' + value.id + '">' + value.nombre + '</option>');
+        combo.append('<option value="' + value.nombre + '">' + value.nombre + '</option>');
     });
 }
 llenaSaborMasa = async() => {
@@ -17,7 +17,6 @@ llenaCobertura = async() => {
 llenaTamano = async() => {
     const ret = new tamano();
     const jsonData = await ret.listar();
-    console.log(jsonData);
     llenaCombo("tamano", jsonData);
 }
 llenaTipoMasa = async() => {
