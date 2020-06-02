@@ -1,6 +1,6 @@
 class cobertura {
     async listar() {
-        const res = await fetch(`http://${ip}:${puerto}/api/tipoMasa`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/cobertura`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -10,7 +10,7 @@ class cobertura {
         return jsonData;
     }
     async buscar(id) {
-        const res = await fetch(`http://${ip}:${puerto}/api/tipoMasa/${id}`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/cobertura/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },

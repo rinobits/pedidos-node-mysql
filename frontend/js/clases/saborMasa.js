@@ -1,6 +1,6 @@
 class saborMasa {
     async listar() {
-        const res = await fetch(`http://${ip}:${puerto}/api/tipoMasa`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/saborMasa`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -11,7 +11,7 @@ class saborMasa {
     }
 
     async buscar(id) {
-        const res = await fetch(`http://${ip}:${puerto}/api/tipoMasa/${id}`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/saborMasa/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },

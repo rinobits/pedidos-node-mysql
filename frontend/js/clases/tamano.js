@@ -1,7 +1,7 @@
 class tamano {
 
     async listar() {
-        const res = await fetch(`http://${ip}:${puerto}/api/tipoMasa`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/tamano`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -12,7 +12,7 @@ class tamano {
     }
 
     async buscar(id) {
-        const res = await fetch(`http://${ip}:${puerto}/api/tipoMasa/${id}`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/tamano/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
