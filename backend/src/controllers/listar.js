@@ -8,7 +8,9 @@ getPedidosFecha = (req, res) => {
             console.log('done');
             let temp = new Array();
             let i = 0;
-            rows[0].forEach(row => {
+        // retornaremos todos los pedidos, ordenados por fecha.
+        // serán ordenados en el frontend.
+            rows[0].forEach(row => { 
                 if(row.id){
                     temp[i] = row;
                     i++;
