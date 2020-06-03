@@ -1,6 +1,6 @@
 class Buscar {
     async buscar(id) {
-        const res = await fetch(`http://${ip}:${puerto}/api/buscar/${id}`, {
+        const res = await fetch(`http://${ip}:${puerto}/api/pedidos/buscar/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },

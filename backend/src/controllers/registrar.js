@@ -1,7 +1,7 @@
 const mysqlConnection = require('../database');
 setPedido = (req, res) => {
     const {
-        id, solicitante, telefono, mensaje, caracteristicas, 
+        _id, solicitante, telefono, mensaje, caracteristicas, 
         tipoMasa, saborMasa, cobertura, tamano, abono, precio,
         horaPedido
     } = req.body;
@@ -21,7 +21,7 @@ setPedido = (req, res) => {
         CALL addOrEditPedido(@id, @solicitante, @telefono, @mensaje, @caracteristicas, @tipoMasa, @saborMasa,
             @cobertura, @tamano, @abono, @precio, @horaPedido);
     `
-    mysqlConnection.query(query, [id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaPedido], (err, rows, fields) => {
+    mysqlConnection.query(query, [_id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaPedido], (err, rows, fields) => {
         if(!err){
             console.log('done');
             res.json({status: true, data: rows[12][0].id});
