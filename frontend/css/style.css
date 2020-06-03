@@ -389,15 +389,20 @@ form .titles{
 @media (max-width:1000px){
   .table{
     flex:90% !important;
+    max-width:100%;
     order:2;
   }
   form{
     flex:90% !important;
+    width:90%;
     order:1;
     margin-bottom:20px;
   }
   .table .titles{
     padding:0 5px 0 0;
+  }
+  .data{
+    flex:90%;
   }
 }
 @media (max-width: 655px){
