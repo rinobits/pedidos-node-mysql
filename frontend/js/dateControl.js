@@ -11,7 +11,7 @@ resetFields = () => {
     $('#solicitante').focus();
     return true;
 }
-llenarCamposFormulario = async(id, await data) => {
+llenarCamposFormulario = async(id, data) => {
     let combo = $('form');
     combo.html('');
     combo.append(`
