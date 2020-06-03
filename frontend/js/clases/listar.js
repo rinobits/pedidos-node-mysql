@@ -9,4 +9,5 @@ class pedidosFecha {
         const jsonData = await res.json();
         return jsonData.data;
     }
+    
 }

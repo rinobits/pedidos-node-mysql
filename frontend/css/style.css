@@ -213,7 +213,8 @@ form .titles{
     
 }
 .table{
-  flex:39%;  
+  flex:39%;
+  max-width: 39%;  
   min-height: 500px;
   max-height: 500px;
 }
@@ -266,6 +267,12 @@ form .titles{
   max-height: 500px;
   padding:0 5px;
 }
+
+.table .data .fields:hover div, .table .data .fields:active div{
+  background-color:rgb(36, 33, 33);
+  color:white;
+}
+.table .data .fields:hover{cursor:pointer;}
 .table .data .fields{
   display:grid;
   grid-template-columns: repeat(7, 1fr);
@@ -286,7 +293,6 @@ form .titles{
     .table .data .pedido{
       grid-area:pedido;
       word-break:break-word;
-      text-align:justify;
     }
     .table .data .abono{
       grid-area:abono;

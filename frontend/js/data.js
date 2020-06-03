@@ -3,11 +3,11 @@ var puerto = 3001;
 var horasJson = [
     {
         "id": "1",
-        "nombre": "9:00"
+        "nombre": "09:00"
     },
     {
         "id": "2",
-        "nombre": "9:30"
+        "nombre": "09:30"
     },
     {
         "id": "3",
