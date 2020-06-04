@@ -17,9 +17,9 @@ setPedido = (req, res) => {
         SET @tamano = ?;
         SET @abono = ?;
         SET @precio = ?;
-        SET @horaPedido = ?;
+        SET @horaDrop = ?;
         CALL addOrEditPedido(@id, @solicitante, @telefono, @mensaje, @caracteristicas, @tipoMasa, @saborMasa,
-            @cobertura, @tamano, @abono, @precio, @horaPedido);
+            @cobertura, @tamano, @abono, @precio, @horaDrop);
     `
     mysqlConnection.query(query, [id, solicitante, telefono, mensaje, caracteristicas, tipoMasa, saborMasa, cobertura, tamano, abono, precio, horaDrop], (err, rows, fields) => {
         if(!err){

@@ -14,7 +14,7 @@ CREATE PROCEDURE `addOrEditPedido` (
     IN _tamano VARCHAR(20),
     IN _abono INT, 
     IN _precio INT,
-    IN _horaPedido VARCHAR(5)
+    IN _horaDrop VARCHAR(5)
 )
 BEGIN
     IF _id = 0 THEN
@@ -29,7 +29,7 @@ BEGIN
 		mensaje, 
 		abono, 
 		precio, 
-		horaPedido,
+		horaDrop,
 		fecha,
 		estado)
         VALUES(
@@ -43,7 +43,7 @@ BEGIN
         _mensaje, 
         _abono, 
         _precio, 
-        _horaPedido,
+        _horaDrop,
         CURDATE(),
         1);
         SET _id = LAST_INSERT_ID();
@@ -60,7 +60,7 @@ BEGIN
             mensaje = _mensaje,
             abono = _abono,
             precio = _precio,
-            horaPedido = _horaPedido,
+            horaDrop = _horaDrop,
             estado = 1,
             fecha = CURDATE()
             WHERE _id = id;

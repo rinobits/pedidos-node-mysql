@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
     tamano VARCHAR(20) DEFAULT NULL,
     caracteristicas VARCHAR(200) DEFAULT NULL,
     mensaje VARCHAR(200) DEFAULT NULL,
-    horaPedido VARCHAR(5) DEFAULT NULL,
+    horaDrop VARCHAR(5) DEFAULT NULL,
     abono INT(8) DEFAULT NULL,
     precio INT(8) DEFAULT NULL,
     estado INT(1) DEFAULT 1,
