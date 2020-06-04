@@ -7,6 +7,6 @@ class Buscar {
             method: "GET"
         });
         const jsonData = await res.json();
-        return jsonData;
+        return jsonData.data[0];
     }
 }
