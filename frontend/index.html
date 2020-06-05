@@ -6,6 +6,8 @@
     <title>PEDIDO</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="./js/formToJson.js"></script>
 </head>
 <body>
     <div class="main">
@@ -32,7 +34,7 @@
             <div class="data" id="data">
             </div>
         </div>
-        <form action="" method="">
+        <form action="http://138.197.205:3001/api/pedidos/registrar" method="POST" onsubmit="registrar(event, this)">
             <div class="titles">
                 <div class="t1">
                     <div class="label">
@@ -102,12 +104,12 @@
                 <div class="t1 label">Precio</div>
                 <input autocomplete="off" name="precio" class="f2 field" id="precio" type="text" required>
                 <input type="hidden" id="id" name="id" value="0">
-                <input type="submit" id="submit-form" class="hidden"/>
+                <input type="submit" id="submit-form" value="OK" class="hidden"/>
                 <input type="reset"  id="reset-form"  class="hidden"/>
             </div>
         </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
     <script type="text/javascript" src="./js/clases/tipoMasa.js"></script>
     <script type="text/javascript" src="./js/clases/saborMasa.js"></script>
     <script type="text/javascript" src="./js/clases/cobertura.js"></script>
@@ -116,6 +118,5 @@
     <script type="text/javascript" src="./js/clases/listar.js"></script>
     <script type="text/javascript" src="./js/clases/buscar.js"></script>
     <script type="text/javascript" src="./js/dateControl.js"></script>
-    <script type="text/javascript" src="./js/data.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 </body>

@@ -1,10 +1,10 @@
 class eliminarPedido {
-    async buscar(id) {
+    async eliminar(id) {
         const res = await fetch(`http://${ip}:${puerto}/api/pedidos/eliminar/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
-            method: "GET"
+            method: "DELETE"
         });
         const data = await res.json();
         return data.data;

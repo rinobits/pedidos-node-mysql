@@ -1,17 +1,35 @@
-//*******************************************//
-/**
- ** Restante:
- ** Obtener ID dinámico ON CLICK field
- ** IF(anular) --> estado of current ELEM(ID) => 
- ** ELSE(send submit to /modificar) -> just send.
-**/
+var id=''; // añadido para vaciar variable en .anular
+async function registrar(ev, data){
+    ev.preventDefault();
+    data = $(data).formToJson();
+    const string = $('form').attr('action').split('/')[5];
+    if(string == 'registrar'){
+        action = 'POST';
+        id = '';
+    }
+    else if(string == 'modificar'){
+        action = 'PUT';
+        id = data.id;
+    }
+    const res = await fetch(`http://${ip}:${puerto}/api/pedidos/${string}/${id}`, {
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: `${action}`,
+        moder:'cors'
+    });
+    const jsonData = await res.json();
+    location.reload();
+    return jsonData;
+}
 function resetFields() {
     $('form').find("input[type=text], textarea, select").val("");
+    $('#id').attr('value', '0');
     $('form').attr({"action": "http://138.197.205:3001/api/pedidos/registrar", "method": "POST"});
     $('#solicitante').focus();
     return true;
 }
-resetFields();  
 function llenarCamposFormulario(data){
     $("#solicitante").val(data.solicitante);
     $("#telefono").val(data.telefono);
@@ -53,7 +71,7 @@ llenarCamposTabla = async(fecha, data) => {
         `);
     });
 }
-filtrarFechas = async(fecha, fechaReciente, fechaAntigua, json, op) => {
+filtrarFechas = async(fecha, fechaReciente,  fechaAntigua, json, op) => {
     let tempList = [];
     let flag = 0;
     let j = 0;
@@ -97,11 +115,10 @@ filtrarFechas = async(fecha, fechaReciente, fechaAntigua, json, op) => {
             j = 0;
             for(let i = json.length-1; i >= 0; i--){
                 if(json[i].fecha.slice(0, 10) == fecha && flag == 0){
-                    flag = 1;        // when this even occurs, 
-                }else if(flag == 1){ // the are positionated in the correct date so:
+                    flag = 1;
+                }else if(flag == 1){
                     if(json[i].fecha.slice(0, 10) != fecha && flag == 1){
-                        // encontramos el siguiente
-                        fecha = json[i].fecha.slice(0, 10); // almacenamos nueva fecha
+                        fecha = json[i].fecha.slice(0, 10);
                         flag = 2;
                         tempList[j] = json[i];
                         j++;
@@ -124,38 +141,35 @@ obtenJson = async() => {
     return json;
 }
 (async($)=>{
-    $(document).ready(async()=>{
-        const json          = await obtenJson();
-        const fechaReciente = json[0].fecha.slice(0, 10);
-        const fechaAntigua  = json[json.length-1].fecha.slice(0, 10);
-        var fecha = fechaReciente;
-        fecha     = await filtrarFechas(fecha, fechaReciente, fechaAntigua, json, 0);
-        $('.left').click(async()  => {
-            fecha = await filtrarFechas(fecha, fechaReciente, fechaAntigua, json, -1);
-            resetFields();
-        });
-        $('.right').click(async() => {
-            fecha = await filtrarFechas(fecha, fechaReciente, fechaAntigua, json, 1);
-            resetFields();
-        });
-        $('.nuevo').click(async() => {
-            resetFields();
-        });
-        $('#data .fields[id^=field_]').click(async function () {
-            $('form').attr({"action": "http://138.197.205:3001/api/pedidos/modificar", "method": "PUT"});
-            id = this.id.split('_')[1];
-            const ret = new Buscar();
-            const json = await ret.buscar(id);
-            console.log(json);
-            llenarCamposFormulario(await json);
-//            $('.anular').click(async() => {  //i gnorar
-//               const ret2 = new eliminarPedido();
-//               const what = await ret2.buscar(id);
-//               console.log(what);
-                //resetFields();
-            //});
-        });
-        $('')
+    const json          = await obtenJson();
+    const fechaReciente = json[0].fecha.slice(0, 10);
+    const fechaAntigua  = json[json.length-1].fecha.slice(0, 10);
+    var fecha = fechaReciente;
+    fecha     = await filtrarFechas(fecha, fechaReciente, fechaAntigua, json, 0);
+    $(document).on('click', '.left', (async function(){
+        resetFields();
+        fecha = await filtrarFechas(fecha, fechaReciente, fechaAntigua, json, -1);
+    }));
+    $(document).on('click', '.right', (async function(){
+        resetFields();
+        fecha = await filtrarFechas(fecha, fechaReciente, fechaAntigua, json, 1);
+    }));
+    $('.nuevo').click(async function() {
+        resetFields();
     });
+    $(document).on('click', '#data .fields[id^=field_]', (async function(){
+        $('form').attr({"action": "http://138.197.205:3001/api/pedidos/modificar", "method": "PUT"});
+        id = '';
+        id = this.id.split('_')[1];
+        const ret = new Buscar();
+        const json = await ret.buscar(id);
+        llenarCamposFormulario(await json);
+        $('.anular').click(async() => {  
+            $('form').attr({"action":"", "method": "DELETE"});
+            let ret2 = new eliminarPedido();
+            let what = await ret2.eliminar(id);
+            location.reload();
+        });
+    }));
 })(jQuery);
-
+resetFields();
